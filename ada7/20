@@ -1,26 +1,19 @@
 import random # use in wave 1
 
 peg_colors = ['R', 'Y', 'G', 'B', 'I', 'V']
-# a list of all colors
-def generate_code(): # wave1uuuu
-    
-    return list(random.choices(peg_colors, k = 4))  #必须是list
-  
-    # k is length of the list
-    pass
 
-def validate_guess(guess): #wave2
-    #vaild = True
+# generate_code do something ...
+def generate_code():
+    len_of_list = 4
+    return list(random.choices(peg_colors, len_of_list))  #必须是list
+
+def validate_guess(guess): #wave2 same
     if len(guess) != 4:
         return False
     for cha in guess:
-        if cha.upper() not in peg_colors:
-            # case insensitive
+        if cha.upper() not in peg_colors:  # case insensitive
             return False
-            #break # any cha not in colors break the loop
-
     return True
-    pass
 
 def color_count(guess, code): #wave3-1
     color_count_num = 0
@@ -36,7 +29,6 @@ def color_count(guess, code): #wave3-1
     #print(code)
     #print("32code",const_code)
     return color_count_num
-    pass
 
 def correct_pos_and_color(guess, code): #wave3-2
     correct_pos_and_color_num = 0
@@ -47,13 +39,11 @@ def correct_pos_and_color(guess, code): #wave3-2
             correct_pos_and_color_num += 1
     #print("44", code)
     return correct_pos_and_color_num
-    pass
 
 def check_guess(guess, code): #wave3-3
     int1 = correct_pos_and_color(guess, code)
     int2 = color_count(guess, code)- int1
     return int1, int2
-    pass
 
 def check_win_or_lose(guess, code, num_guesses): # wave2-2
     
